@@ -24,13 +24,13 @@
 
     
 //    NSMutableArray *testArray = [[NSMutableArray alloc] initWithArray:@[
-//                                  [[NSMutableArray alloc] initWithArray:@[[[NSMutableArray alloc] initWithArray:@[@1]], @2, @4]],
-//                                  [[NSMutableArray alloc] initWithArray:@[[[NSMutableArray alloc] initWithArray:@[@2]], @1, @3, @4]],
-//                                  [[NSMutableArray alloc] initWithArray:@[[[NSMutableArray alloc] initWithArray:@[@3]], @2, @4]],
-//                                  [[NSMutableArray alloc] initWithArray:@[[[NSMutableArray alloc] initWithArray:@[@4]], @1, @2, @3]]
+//                                  [[NSMutableArray alloc] initWithArray:@[[[NSMutableArray alloc] initWithArray:@[@"1"]], @"2", @"4"]],
+//                                  [[NSMutableArray alloc] initWithArray:@[[[NSMutableArray alloc] initWithArray:@[@"2"]], @"1", @"3", @"4"]],
+//                                  [[NSMutableArray alloc] initWithArray:@[[[NSMutableArray alloc] initWithArray:@[@"3"]], @"2", @"4"]],
+//                                  [[NSMutableArray alloc] initWithArray:@[[[NSMutableArray alloc] initWithArray:@[@"4"]], @"1", @"2", @"3"]]
 //                                  ]];
 //    [self findMinCutGraf:testArray];
-    
+//    
     NSInteger minCuount = INT32_MAX;
     NSInteger testCuount = INT32_MAX;
 
@@ -76,7 +76,7 @@
         for (int i = 1; i< [lineR count]; i++) {
             if ([lineR[i] isEqualToString:lineT[0][0]]) {
                 [indexSetRR addIndex:i];
-                break;
+                //break;
             }
         }
         [lineR removeObjectsAtIndexes:indexSetRR];
@@ -84,7 +84,7 @@
         for (int i = 1; i< [lineT count]; i++) {
             if ([lineT[i] isEqualToString:lineR[0][0]]) {
                 [indexSetRT addIndex:i];
-                break;
+                //break;
             }
         }
         [lineT removeObjectsAtIndexes:indexSetRT];
@@ -102,6 +102,8 @@
         NSMutableIndexSet *indexSetR = [NSMutableIndexSet indexSet];
         for (int i = 1; i< [lineR count]; i++) {
             if ([lineR[i] isEqualToString:lineR[0][0]]) {
+                [indexSetR addIndex:i];
+            } else if ([lineR[i] isEqualToString:lineT[0][0]]) {
                 [indexSetR addIndex:i];
             }
         }
